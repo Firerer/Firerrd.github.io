@@ -13,7 +13,6 @@ jobs:
       # https://github.com/marketplace/actions/setup-node-js-environment
       - uses: actions/setup-node@v3
         with:
-          cache: "pnpm"
           node-version: "19"
       - run: |
           npm ci
