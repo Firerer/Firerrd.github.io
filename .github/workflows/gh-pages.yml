@@ -13,17 +13,17 @@ jobs:
       # https://github.com/marketplace/actions/setup-node-js-environment
       - uses: actions/setup-node@v3
         with:
-          cache: 'pnpm'
-          node-version: '19'
+          cache: "pnpm"
+          node-version: "19"
       - run: |
-        npm ci
-        npm run build
+          npm ci
+          npm run build
 
   deploy:
     needs: build
     permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -34,4 +34,4 @@ jobs:
         with:
           path: "dist/"
       # https://github.com/marketplace/actions/deploy-github-pages-site
-      - uses: actions/deploy-pages@v2 # or the latest "vX.X.X" version tag for this action
+      - uses: actions/deploy-pages@v2
